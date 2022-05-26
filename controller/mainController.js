@@ -38,7 +38,12 @@ const menuDelDia = [{
 
 const mainController = {
     index: (req, res) => {
-        res.render('index', {about: about, menu: menuDelDia});
+        res.render('index', { about: about, menu: menuDelDia });
+    },
+    detail: (req, res) => {
+        let plato = menuDelDia.find(plato => plato.id == req.params.menuId)
+        console.log(plato);
+        res.render('detalleMenu', { plato: plato });
     }
 };
 
